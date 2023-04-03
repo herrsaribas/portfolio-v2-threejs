@@ -249,7 +249,7 @@ const projects = [
   {
     name: "Smartfarben E-Commerce",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "I have builded and deployed a fully responsive Modern Full Stack Ecommerce application with Payments functionality. With Modern design, animations, the ability to add and edit products on the go using a CMS, all advanced cart functionalities...",
     tags: [
       {
         name: "nextjs",
