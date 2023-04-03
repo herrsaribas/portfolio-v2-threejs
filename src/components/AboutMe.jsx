@@ -3,10 +3,9 @@ import { motion } from "framer-motion";
 import { styles } from "../style";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
-import { testimonials } from "../constants";
 import { github, linkedin, xing } from "../assets";
 
-const FeedbackCard = ({
+const AboutCard = ({
   index,
   testimonial,
   name,
@@ -42,7 +41,7 @@ const FeedbackCard = ({
   </motion.div>
 );
 
-const Feedbacks = () => {
+const AboutMe = () => {
   return (
     <div className="mt-12 bg-black-100 rounded-[20px]">
       <div
@@ -102,7 +101,7 @@ const Feedbacks = () => {
             building projects as often as I can, and I'm looking forward to
             gaining work experience in web development related companies.
           </p>
-          <h2 className="mt-4 text-[28px] text-center">Reach me!</h2>
+          <h2 className="mt-4 text-[28px] text-center">Find me on!</h2>
           <div className="flex justify-center">
             <a href="https://github.com/herrsaribas">
               <div className="p-5 cursor-pointer">
@@ -132,4 +131,4 @@ const Feedbacks = () => {
   );
 };
 
-export default SectionWrapper(Feedbacks, "");
+export default SectionWrapper(AboutMe, "");

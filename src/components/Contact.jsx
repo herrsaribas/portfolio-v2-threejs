@@ -16,9 +16,52 @@ const Contact = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    const { target } = e;
+    const { name, value } = target;
 
-  const handleSubmit = (e) => {};
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .send(
+        "service_d5f41cc",
+        "template_cj8lbwc",
+        {
+          from_name: form.name,
+          to_name: "Ahmet",
+          from_email: "form.email",
+          to_email: "ahmetmsaribas@outlook.com",
+          message: form.message,
+        },
+        "d072XJ9ugqwqaHyNV"
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("thank you. I will get back to you as soon as possible");
+
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.log(error);
+
+          alert("Something went wrong");
+        }
+      );
+  };
 
   return (
     <div className="xl:mt-12 flex justify-center items-center flex-wrap gap-10 overflow-hidden">
@@ -70,7 +113,7 @@ const Contact = () => {
             type="submit"
             className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl"
           >
-            Send
+            {loading ? "Sending..." : "Send"}
           </button>
         </form>
       </motion.div>
@@ -81,7 +124,7 @@ const Contact = () => {
         <img
           src={astronout}
           alt="astronout"
-          className="w-[800px] h-[600px] object-contain animate-bounce z-2"
+          className="w-[800px] h-[600px] object-contain animate-bounce z-2 mt-4"
         />
       </motion.div>
     </div>
